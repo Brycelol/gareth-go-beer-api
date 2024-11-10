@@ -10,10 +10,24 @@
 package swagger
 
 import (
+	"encoding/json"
+	"math/rand/v2"
 	"net/http"
 )
 
+var beerMap = map[int64]Beer{}
+
 func AddBeer(w http.ResponseWriter, r *http.Request) {
+
+	// Add a mock beer
+	beer := Beer{
+		Name:   "Some beer",
+		Brewer: "Some Manufacturer",
+		Id:     rand.Int64N(100),
+	}
+
+	beerMap[beer.Id] = beer
+
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 }
@@ -29,6 +43,21 @@ func FindBeerById(w http.ResponseWriter, r *http.Request) {
 }
 
 func FindBeers(w http.ResponseWriter, r *http.Request) {
+
+	// Return beers
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
+
+	// make a slice
+	beerSlice := make([]Beer, 0, len(beerMap))
+
+	for _, value := range beerMap {
+		beerSlice = append(beerSlice, value)
+	}
+
+	err := json.NewEncoder(w).Encode(beerSlice)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+	}
+
 }
