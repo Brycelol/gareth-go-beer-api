@@ -13,22 +13,22 @@ import (
 	"net/http"
 )
 
-func Addbeer(w http.ResponseWriter, r *http.Request) {
+func AddBeer(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 }
 
-func Deletebeer(w http.ResponseWriter, r *http.Request) {
+func DeleteBeer(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 }
 
-func FindbeerById(w http.ResponseWriter, r *http.Request) {
+func FindBeerById(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 }
 
-func Findbeers(w http.ResponseWriter, r *http.Request) {
+func FindBeers(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 }

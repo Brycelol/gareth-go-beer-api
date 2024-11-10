@@ -56,30 +56,30 @@ var routes = Routes{
 	},
 
 	Route{
-		"Addbeer",
+		"AddBeer",
 		strings.ToUpper("Post"),
 		"/api/beers",
-		Addbeer,
+		AddBeer,
 	},
 
 	Route{
-		"Deletebeer",
+		"DeleteBeer",
 		strings.ToUpper("Delete"),
 		"/api/beers/{id}",
-		Deletebeer,
+		DeleteBeer,
 	},
 
 	Route{
-		"FindbeerById",
+		"FindBeerById",
 		strings.ToUpper("Get"),
 		"/api/beers/{id}",
-		FindbeerById,
+		FindBeerById,
 	},
 
 	Route{
-		"Findbeers",
+		"FindBeers",
 		strings.ToUpper("Get"),
 		"/api/beers",
-		Findbeers,
+		FindBeers,
 	},
 }
